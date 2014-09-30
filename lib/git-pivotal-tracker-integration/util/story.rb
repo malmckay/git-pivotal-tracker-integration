@@ -98,8 +98,10 @@ class GitPivotalTrackerIntegration::Util::Story
       :current_state => CANDIDATE_STATES,
       :limit => limit
     }
-    if type
-      criteria[:story_type] = type
+    criteria[:story_type] = if type
+      type
+    else
+      'Feature,Bug,Chore'
     end
 
     candidates = project.stories.all criteria
