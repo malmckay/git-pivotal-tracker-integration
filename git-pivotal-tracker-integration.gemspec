@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 1.8.7'
 
   s.add_dependency 'highline', '~> 1.6'
+  s.add_dependency 'colored', '~> 1.2'
   s.add_dependency 'pivotal-tracker', '~> 0.5'
 
   s.add_development_dependency 'bundler', '~> 1.3'
