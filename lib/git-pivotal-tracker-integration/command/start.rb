@@ -50,7 +50,8 @@ class GitPivotalTrackerIntegration::Command::Start < GitPivotalTrackerIntegratio
   private
 
   def development_branch_name(story)
-    branch_name = "#{story.id}-" + ask("Enter branch name (#{story.id}-<branch-name>): ")
+    default_branch_name = story.name.gsub(/[^0-9A-Za-z.\-]+/, '_').gsub('__','_').gsub(/\A_|_\Z/,'')
+    branch_name = "#{story.id}-" + ask("Enter branch name (#{story.id}-#{default_branch_name}): "){ |q| q.default = default_branch_name }
     puts
     branch_name
   end
