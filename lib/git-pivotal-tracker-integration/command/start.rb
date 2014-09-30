@@ -45,6 +45,7 @@ class GitPivotalTrackerIntegration::Command::Start < GitPivotalTrackerIntegratio
     GitPivotalTrackerIntegration::Util::Git.add_hook 'prepare-commit-msg', File.join(File.dirname(__FILE__), 'prepare-commit-msg.sh')
 
     start_on_tracker story
+    GitPivotalTrackerIntegration::Command::Requirements.new().run
   end
 
   private
